@@ -4,7 +4,10 @@ const exec = require('@actions/exec');
 
 async function run() {
   try {
+    const ref = core.getInput('githubRef', { required: true });
+    const repo = core.getInput('githubRepository', { required: true });
     const ccDir = 'CodeClimateBin';     
+
     core.startGroup('Set Constants');
     core.setOutput('ccVersion', '0.7.0');
     core.setOutput('ccDirecgtory', ccDir);
@@ -29,13 +32,13 @@ async function run() {
 
     
     core.startGroup('Parse Branch');
-    const branch = /refs\/heads\/(.+)$/.exec(process.env.GITHUB_REF)[1];
+    const branch = /refs\/heads\/(.+)$/.exec(ref)[1];
     core.setOutput('branch', branch);
     core.endGroup();
 
 
     core.startGroup('Parse Project');
-    const project = /[^\/]+\/(.+)$/.exec(process.env.GITHUB_REPOSITORY)[1];
+    const project = /[^\/]+\/(.+)$/.exec(repo)[1];
     core.setOutput('project', project);
     core.endGroup();
   } 

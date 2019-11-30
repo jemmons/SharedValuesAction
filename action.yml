@@ -2,15 +2,12 @@ name: 'Shared Values'
 author: 'jemmons'
 description: 'Common values shared across actions.'
 inputs:
-  resultfile:
-    descrition: 'filepath of .xcresults'
+  githubRef:
+    descrition: 'The GITHUB_REF environment variable'
     required: true
-  outputpath:
-    description: 'filepath for json output'
+  githubRepository:
+    description: 'The GITHUB_REPOSITORY environment variable'
     required: true
-  targets:
-    description: 'space-seperated list of targets to output (all others will be removed)'
-    required: false
 outputs:
   ccVersion:
     description: Version of the Code Climate coverage tool to download/cache.
@@ -18,7 +15,7 @@ outputs:
     description: Directory where Code Climate coverage tool is downloaded (mostly for caching).
   ccPath:
     description: The relative file path of the Code Climate coverage binary. 
-  resultsPath:
+  resultPath:
     description: File path of the Xcode results file.
   buildCachePath:
     description: File path of Xcode build artifacts (for caching).
