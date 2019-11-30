@@ -1,0 +1,37 @@
+name: 'Shared Values'
+author: 'jemmons'
+description: 'Common values shared across actions.'
+inputs:
+  resultfile:
+    descrition: 'filepath of .xcresults'
+    required: true
+  outputpath:
+    description: 'filepath for json output'
+    required: true
+  targets:
+    description: 'space-seperated list of targets to output (all others will be removed)'
+    required: false
+outputs:
+  ccVersion:
+    description: Version of the Code Climate coverage tool to download/cache.
+  ccDirectory:
+    description: Directory where Code Climate coverage tool is downloaded (mostly for caching).
+  ccPath:
+    description: The relative file path of the Code Climate coverage binary. 
+  resultsPath:
+    description: File path of the Xcode results file.
+  buildCachePath:
+    description: File path of Xcode build artifacts (for caching).
+  swiftVersion:
+    description: Version of the command line Swift tool.
+  branch:
+    description: Current branch of the repo.
+  project:
+    description: Name of the project.
+
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
+branding:
+  icon: 'dollar-sign'
+  color: 'orange'
