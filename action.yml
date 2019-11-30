@@ -1,13 +1,6 @@
 name: 'Shared Values'
 author: 'jemmons'
 description: 'Common values shared across actions.'
-inputs:
-  githubRef:
-    descrition: 'The GITHUB_REF environment variable'
-    required: true
-  githubRepository:
-    description: 'The GITHUB_REPOSITORY environment variable'
-    required: true
 outputs:
   ccVersion:
     description: Version of the Code Climate coverage tool to download/cache.
@@ -21,8 +14,6 @@ outputs:
     description: File path of Xcode build artifacts (for caching).
   swiftVersion:
     description: Version of the command line Swift tool.
-  branch:
-    description: Current branch of the repo.
   project:
     description: Name of the project.
 

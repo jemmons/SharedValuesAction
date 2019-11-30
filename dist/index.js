@@ -643,9 +643,9 @@ async function run() {
     const ccDir = 'CodeClimateBin';     
     core.startGroup('Set Constants');
     core.setOutput('ccVersion', '0.7.0');
-    core.setOutput('ccDirecgtory', ccDir);
+    core.setOutput('ccDirectory', ccDir);
     core.setOutput('ccPath', ccDir + '/cc-test-reporter');
-    core.setOutput('resultsPath', 'Output.xcresult');
+    core.setOutput('resultPath', 'Output.xcresult');
     core.setOutput('buildCachePath', 'BuildCache');  
     core.endGroup();
 
@@ -664,12 +664,6 @@ async function run() {
     core.endGroup();
 
     
-    core.startGroup('Parse Branch');
-    const branch = /refs\/heads\/(.+)$/.exec(process.env.GITHUB_REF)[1];
-    core.setOutput('branch', branch);
-    core.endGroup();
-
-
     core.startGroup('Parse Project');
     const project = /[^\/]+\/(.+)$/.exec(process.env.GITHUB_REPOSITORY)[1];
     core.setOutput('project', project);
